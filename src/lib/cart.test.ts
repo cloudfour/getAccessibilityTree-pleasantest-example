@@ -144,16 +144,16 @@ test(
         initialItems: [{ product: products.iphone, quantity: 2 }],
       },
     );
+
+    // 6. Here we are splitting the accessibility trees for the cart items table and the summary.
+    // This will let us check one or the other individually throughout the test.
     const cartItemsList = await screen.getByRole('table', {
       name: /cart items/i,
     });
     const summary = await screen.getByRole('region', {
       name: /summary/i,
     });
-    // 6. Here we are splitting the accessibility trees for the cart items table and the summary.
-    // This will let us check one or the other individually throughout the test.
-
-    // 7. Here we're checking the initial state before editing.
+    // 7. We're checking the initial state before editing.
     expect(await getAccessibilityTree(cartItemsList)).toMatchInlineSnapshot(`
       table "Cart items"
         rowgroup

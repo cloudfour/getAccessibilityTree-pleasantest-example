@@ -4,3 +4,4 @@
 [[redirects]]
   from = "/*"
   to = "/src/app.html"
+  status = 200
